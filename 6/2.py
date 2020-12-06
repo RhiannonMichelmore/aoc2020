@@ -2,15 +2,7 @@ import numpy as np
 import sys
 
 def main(in_string):
-    groups = in_string.split('\n\n')
-    g_counts = []
-    for g in groups:
-        indivs = [set(i) for i in g.split('\n')]
-        base = indivs[0]
-        for i in indivs[1:]:
-            base = base.intersection(i)
-        g_counts.append(len(base))
-    print(sum(g_counts))
+    print(sum([len(set.intersection(*list(map(set,g.split('\n'))))) for g in in_string.split('\n\n')]))
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
