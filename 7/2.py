@@ -21,23 +21,17 @@ def main(in_string):
                     G.add_edge(node,dest_node,weight = weight)
 
     target = 'shinygold'
-    total = get_cost(G,target,0)
+    total = get_cost(G,target)
     # ignore shinygold
     total -= 1
     print(total)
 
-def get_cost(G,root,level):
-    spaces = ' '*(8*level)
-    print(spaces,'root:',root)
+def get_cost(G,root):
     total = 1
     for succ in G.successors(root):
-        print(spaces,'succ:',succ)
         weight = G[root][succ]['weight']
-        c = get_cost(G,succ,level+1)
+        c = get_cost(G,succ)
         total += (c*weight)
-        print(spaces,'sum:',c,'*',weight)
-        print()
-    print()
     return total
 
 
