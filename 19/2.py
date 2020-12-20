@@ -33,7 +33,7 @@ def main(in_string):
 
     sec_len = len(rule42[0])
 
-    # 8 11
+    # rule 0 =  8 11
     count = 0
     for s in strings:
         correct = True
